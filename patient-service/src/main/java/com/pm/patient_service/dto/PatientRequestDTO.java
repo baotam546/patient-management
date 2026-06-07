@@ -1,5 +1,6 @@
 package com.pm.patient_service.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,6 +11,8 @@ public class PatientRequestDTO {
     @Size(max = 100, message="Name can not be exceeded 100 characters")
     private String name;
 
+    
+    @Column(unique = true)
     @NotBlank(message="Email is required")
     @Email(message="Email should be valid")
     private String email;
